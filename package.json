@@ -1,0 +1,23 @@
+{
+  "name": "node-cal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cal.js",
+  "scripts": {
+    "test": "mocha --harmony-destructuring tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbleds/node-cal.git"
+  },
+  "author": "Benjamin Bledsoe <bledsoedesigns@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bbleds/node-cal/issues"
+  },
+  "homepage": "https://github.com/bbleds/node-cal#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
