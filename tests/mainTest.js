@@ -14,6 +14,47 @@ describe('cal', () => {
   })
 });
 
+//test for weeks
+describe("Week tests", () => {
+  const { outputCal, calBodyOutput, calHeaderOutput } = require("../lib/monthGen.js");
+
+
+
+  const getWeeks = (month, year) => {
+        console.log(calBodyOutput(month, year).lastIndexOf("\n"));
+
+        if(calBodyOutput(month, year).lastIndexOf("\n") === 62){
+          return 4;
+        } else if (calBodyOutput(month, year).lastIndexOf("\n") === 83){
+          return 5
+        } else if (calBodyOutput(month, year).lastIndexOf("\n") === 104){
+          return 6
+        }
+  };
+
+
+  it('should the retrn the appropriate number of weeks for all types of weeks', () => {
+      expect(getWeeks(2,2015)).to.equal(4);
+      expect(getWeeks(10,2015)).to.equal(5);
+      expect(getWeeks(8,2015)).to.equal(6);
+  });
+
+   it('handles erroneous arguments with letters', () => {
+      expect(execSync('./lib/cal.js 6 b').toString()).to.equal("Arguments are invalid\n");
+      expect(execSync('./lib/cal.js a b').toString()).to.equal("Arguments are invalid\n");
+      expect(execSync('./lib/cal.js a 1973').toString()).to.equal("Arguments are invalid\n");
+  });
+
+   it('handles erroneous arguments with numbers', () => {
+     expect(execSync('./lib/cal.js 0 1872').toString()).to.equal("Arguments are invalid\n");
+     expect(execSync('./lib/cal.js 3 1672').toString()).to.equal("Arguments are invalid\n");
+     expect(execSync('./lib/cal.js 3 0').toString()).to.equal("Arguments are invalid\n");
+
+   });
+
+
+});
+
 
 //   describe("Zeller's congruence", () => {
 //      const zellers = require('../lib/zellars.js');
