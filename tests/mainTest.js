@@ -42,7 +42,10 @@ describe("Week tests", () => {
 //test for total days
 describe("day tests", () => {
   it("should return the total number of days in the month", () => {
-  expect(getTotalDays(11,2015)).to.equal(30);
+    expect(getTotalDays(11,2015)).to.equal(30);
+    expect(getTotalDays(12,2015)).to.equal(31);
+    expect(getTotalDays(2,2012)).to.equal(29);
+    expect(getTotalDays(2,2014)).to.equal(28);
   });
 
 });
