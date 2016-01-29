@@ -12,6 +12,13 @@ describe('cal', () => {
 
       expect(output).to.equal(goal);
     });
+
+     it('should handle the current year', () => {
+      const goal = execSync('cal 2016').toString();
+      const output = execSync('./lib/cal.js 2016').toString();
+
+      expect(output).to.equal(goal);
+    });
   })
 });
 
