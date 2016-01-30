@@ -22,7 +22,21 @@ describe('cal', () => {
     it('should handle any year between 1753 and 9999', () => {
       const goal = execSync('cal 1800').toString();
       const output = execSync('./lib/cal.js 1800').toString();
-
+      expect(output).to.equal(goal);
+    });
+    it('should handle the year 1754', () => {
+      const goal = execSync('cal 1754').toString();
+      const output = execSync('./lib/cal.js 1754').toString();
+      expect(output).to.equal(goal);
+    });
+    it('should handle the year 9998', () => {
+      const goal = execSync('cal 9998').toString();
+      const output = execSync('./lib/cal.js 9998').toString();
+      expect(output).to.equal(goal);
+    });
+     it('should handle the year 2567', () => {
+      const goal = execSync('cal 2567').toString();
+      const output = execSync('./lib/cal.js 2567').toString();
       expect(output).to.equal(goal);
     });
   })
