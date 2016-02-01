@@ -7,6 +7,7 @@
 
 //set month strings object equal to empty object
 const monthStrings = {};
+let space = " ";
 
 
 //Returns a string with spaces, the year, and the month, with january = 1, and then returns a new line with the days of the week
@@ -103,6 +104,16 @@ monthStrings.outputCal = (month, year) => {
 
   if(monthStrings.getWeeks(month,year) === 4 || monthStrings.getWeeks(month,year) === 5){
     return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutput(month, year)}\n`
+  } else {
+
+  return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutput(month, year)}`
+  }
+};
+
+monthStrings.outputCalLinux = (month, year) => {
+
+  if(monthStrings.getWeeks(month,year) === 4 || monthStrings.getWeeks(month,year) === 5){
+    return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutput(month, year)}\n${space.repeat(22)}`
   } else {
 
   return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutput(month, year)}`
