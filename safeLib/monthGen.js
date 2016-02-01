@@ -89,6 +89,48 @@ monthStrings.calBodyOutput = (month, year) => {
 
 };
 
+//returns the days of the month from 1 - 31 with spaces for formatting
+monthStrings.calBodyOutputLinux = (month, year) => {
+  const zellars = require("./zellars.js");
+
+  const totalDays = new Date(year, month, 0).getDate();
+
+  let daysNums = [];
+
+  for(let i = 1; i <= totalDays; i++){
+    if(i <= 9 ){
+      let spacedI = " "+i;
+      daysNums.push(spacedI);
+    } else {
+
+      daysNums.push(i);
+    }
+  }
+  const getDay = zellars.getDay;
+
+  const prependedSpaces = getDay(year, month, 1) * 3;
+
+  const initialSpace = " ";
+
+  const finalString = `${initialSpace.repeat(prependedSpaces)}${daysNums.join(" ")}`;
+
+  const spacedFinal = finalString.match(new RegExp('.{1,'+21+'}', 'g'));
+
+  let fixedArray = [];
+      for(let i = 0; i < spacedFinal.length; i++){
+        if(i === spacedFinal.length-1){
+          let newLine = `${spacedFinal[i]}${space.repeat(22-spacedFinal[i])}`;
+          fixedArray.push(newLine);
+        }else {
+        let newLine = spacedFinal[i].split("").splice(0,spacedFinal[i].split("").length-1).join("");
+        fixedArray.push(newLine);
+        }
+      }
+        return  fixedArray.join("\n");
+
+
+};
+
 
 
 
@@ -113,10 +155,10 @@ monthStrings.outputCal = (month, year) => {
 monthStrings.outputCalLinux = (month, year) => {
 
   if(monthStrings.getWeeks(month,year) === 4 || monthStrings.getWeeks(month,year) === 5){
-    return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutput(month, year)}\n${space.repeat(22)}`
+    return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutputLinux(month, year)}\n${space.repeat(22)}`
   } else {
 
-  return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutput(month, year)}`
+  return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutputLinux(month, year)}`
   }
 };
 
