@@ -119,7 +119,7 @@ monthStrings.calBodyOutputLinux = (month, year) => {
   let fixedArray = [];
       for(let i = 0; i < spacedFinal.length; i++){
         if(i === spacedFinal.length-1){
-          let newLine = `${spacedFinal[i]}${space.repeat(22-spacedFinal[i])}`;
+          let newLine = `${spacedFinal[i]}`;
           fixedArray.push(newLine);
         }else {
         let newLine = spacedFinal[i].split("").splice(0,spacedFinal[i].split("").length-1).join("");
