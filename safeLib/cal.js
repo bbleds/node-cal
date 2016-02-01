@@ -19,31 +19,16 @@ let errorMsg = "Arguments are invalid"
 const month = new Date().getMonth() + 1;
 const year = new Date().getFullYear();
 
-// if(platform === 'darwin'){
+if(platform === 'darwin'){
 
-// 	//handle args
-// 	//if there is one arg, check for year, if two check for year and month
-// 	argv.length === 0 ? console.log(outputCal(month,year)) :
-// 	argv.length === 1 && parseInt(argv[0]) > 1753 && parseInt(argv[0]) < 9999 ? makeYear(argv[0]) :
-// 	argv.length === 2 && parseInt(argv[0]) > 0 && parseInt(argv[0]) <= 12 && parseInt(argv[1]) > 1753 && parseInt(argv[1]) <= 9999 ? console.log(outputCal(parseInt(argv[0]),parseInt(argv[1]))): console.log(errorMsg);
-
-// } else {
-// 	//this is for linux
-
-// 	//handle args
-// 	//if there is one arg, check for year, if two check for year and month
-// 	argv.length === 0 ? console.log(outputCal(month,year)) :
-// 	argv.length === 1 && parseInt(argv[0]) > 1753 && parseInt(argv[0]) < 9999 ? makeYear(argv[0]) :
-// 	argv.length === 2 && parseInt(argv[0]) > 0 && parseInt(argv[0]) <= 12 && parseInt(argv[1]) > 1753 && parseInt(argv[1]) <= 9999 ? console.log(outputCal(parseInt(argv[0]),parseInt(argv[1]))): console.log(errorMsg);
-// }
+}
 
 
+//handle args
+//if there is one arg, check for year, if two check for year and month
 argv.length === 0 ? console.log(outputCal(month,year)) :
-	argv.length === 1 && parseInt(argv[0]) > 1753 && parseInt(argv[0]) < 9999 ? makeYear(argv[0]) :
-	argv.length === 2 && parseInt(argv[0]) > 0 && parseInt(argv[0]) <= 12 && parseInt(argv[1]) > 1753 && parseInt(argv[1]) <= 9999 ? console.log(outputCal(parseInt(argv[0]),parseInt(argv[1]))): console.log(errorMsg);
-
-
-
+argv.length === 1 && parseInt(argv[0]) > 1753 && parseInt(argv[0]) < 9999 ? makeYear(argv[0]) :
+argv.length === 2 && parseInt(argv[0]) > 0 && parseInt(argv[0]) <= 12 && parseInt(argv[1]) > 1753 && parseInt(argv[1]) <= 9999 ? console.log(outputCal(parseInt(argv[0]),parseInt(argv[1]))): console.log(errorMsg);
 
 
 
