@@ -126,7 +126,7 @@ monthStrings.calBodyOutputLinux = (month, year) => {
         fixedArray.push(newLine);
         }
       }
-        return  fixedArray.join("\n");
+        return  fixedArray.join("  \n");
 
 
 };
