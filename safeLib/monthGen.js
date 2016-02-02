@@ -24,6 +24,20 @@ monthStrings.calHeaderOutput = (month, year) => {
   return `${spaceString.repeat(initalSpaces+1)}${fullTopString}\nSu Mo Tu We Th Fr Sa`;
 
 };
+//Returns a string with spaces, the year, and the month, with january = 1, and then returns a new line with the days of the week
+monthStrings.calHeaderOutputLinux = (month, year) => {
+
+  const monthArray = [ , 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  const fullTopString = `${monthArray[month]} ${year}`;
+
+  const initalSpaces = ((20 - (monthArray[month].length + 5))/2)-1;
+
+  const spaceString = " ";
+
+  return `${spaceString.repeat(initalSpaces+1)}${fullTopString}${spaceString.repeat(initalSpaces+1)}\nSu Mo Tu We Th Fr Sa  `;
+
+};
 
 //Returns a string with spaces, the year, and the month, with january = 1, and then returns a new line with the days of the week
 monthStrings.monthNameOnly = (month) => {
@@ -155,10 +169,10 @@ monthStrings.outputCal = (month, year) => {
 monthStrings.outputCalLinux = (month, year) => {
 
   if(monthStrings.getWeeks(month,year) === 4 || monthStrings.getWeeks(month,year) === 5){
-    return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutputLinux(month, year)}\n${space.repeat(22)}`
+    return `${monthStrings.calHeaderOutputLinux(month,year)}\n${monthStrings.calBodyOutputLinux(month, year)}\n${space.repeat(22)}`
   } else {
 
-  return `${monthStrings.calHeaderOutput(month,year)}\n${monthStrings.calBodyOutputLinux(month, year)}`
+  return `${monthStrings.calHeaderOutputLinux(month,year)}\n${monthStrings.calBodyOutputLinux(month, year)}`
   }
 };
 
