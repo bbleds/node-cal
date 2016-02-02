@@ -35,7 +35,7 @@ monthStrings.calHeaderOutputLinux = (month, year) => {
 
   const spaceString = " ";
 
-  return `${spaceString.repeat(initalSpaces+1)}${fullTopString}${spaceString.repeat(initalSpaces+3)}\nSu Mo Tu We Th Fr Sa  `;
+  return `${spaceString.repeat(initalSpaces+1)}${fullTopString}${spaceString.repeat(initalSpaces+4)}\nSu Mo Tu We Th Fr Sa  `;
 
 };
 
